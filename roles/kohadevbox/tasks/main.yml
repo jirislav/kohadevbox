@@ -19,6 +19,11 @@
       - pmtools
       - memcached
 
+  - name: Install perl deps using cpanm
+    cpanm: name={{ item }} mirror={{ cpan_mirror }}
+    with_items:
+      - Business::ISSN
+
   - name: Install extra tools
     apt: pkg={{ extra_tools }} state=latest
 
@@ -78,19 +83,19 @@
     become_user: root
 
   - include: qatools.yml
-    become_user: vagrant
+    become_user: root
 
   - include: gitbz.yml
-    become_user: vagrant
+    become_user: root
 
   - include: gitify.yml
-    become_user: vagrant
+    become_user: root
 
   - include: releasetools.yml
-    become_user: vagrant
+    become_user: root
 
   - include: misc4dev.yml
-    become_user: vagrant
+    become_user: root
 
   - include: elasticsearch.yml
     become_user: root

@@ -2,3 +2,6 @@
 
 - name: Clone the misc4dev repo
   git: repo={{ misc4dev_repo }}  dest={{ misc4dev_dir }} version={{ misc4dev_version }}
+
+- name: Clone the misc4dev repo (permissions)
+  file: path={{ misc4dev_dir }} owner=vagrant group=vagrant recurse=yes state=directory

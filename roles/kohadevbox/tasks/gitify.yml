@@ -1,4 +1,5 @@
 # Tasks required to have gitify working
+
 - name: Clone Gitify
   git: repo={{ gitify_repo }} dest={{ gitify_dir }} version={{ gitify_version }}
 
@@ -8,4 +9,9 @@
 
 - name: Gitify the Koha instance
   shell:  ./koha-gitify {{ koha_instance_name }} /home/vagrant/kohaclone chdir={{ gitify_dir }}
-  become_user: root
+
+- name: Gitify (permissions)
+  file: path={{ gitify_dir }} owner=vagrant group=vagrant recurse=yes state=directory
+
+- name: Koha repo (permissions)
+  file: path=/home/vagrant/kohaclone owner=vagrant group=vagrant recurse=yes state=directory
