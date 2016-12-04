@@ -7,9 +7,16 @@ Create a development environment for the Koha ILS project on the [DigitalOcean](
  * QA patches
  * Release
 
-##### To customize the installation, please see [the original kohadevbox](https://github.com/digibib/kohadevbox)
+##### To customize the deployment, please see [the original kohadevbox](https://github.com/digibib/kohadevbox#environment-variables)
 
-## How to setup a droplet
+Install
+-------
+Install the provider plugin using the Vagrant command-line interface:
+
+`vagrant plugin install vagrant-digitalocean`
+
+Setting up a droplet
+--------------------
 
 1. Obtain [DigitalOcean API token](https://cloud.digitalocean.com/settings/api/tokens)
 2. Write it down into file Vagrantfile under DIGITAL_OCEAN_TOKEN variable
